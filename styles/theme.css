@@ -1,0 +1,475 @@
+/* =========================================
+   DevOverflow Theme
+   Tailwind CSS v4
+   ========================================= */
+
+/* -----------------------------------------
+   Dark Mode
+   ----------------------------------------- */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* -----------------------------------------
+   Theme Tokens
+   ----------------------------------------- */
+
+@theme {
+  /* Colors */
+
+  --color-primary-500: #ff7000;
+  --color-primary-100: #fff1e6;
+
+  --color-dark-100: #000000;
+  --color-dark-200: #0f1117;
+  --color-dark-300: #151821;
+  --color-dark-400: #212734;
+  --color-dark-500: #101012;
+
+  --color-light-900: #ffffff;
+  --color-light-850: #fdfdfd;
+  --color-light-800: #f4f6f8;
+  --color-light-700: #dce3f1;
+  --color-light-500: #7b8ec8;
+  --color-light-400: #858ead;
+
+  --color-accent-blue: #1da1f2;
+
+  /* Fonts */
+
+  --font-sans: var(--font-inter);
+  --font-grotesk: var(--font-space-grotesk);
+
+  /* Breakpoints */
+
+  --breakpoint-xs: 420px;
+
+  /* Shadows */
+
+  --shadow-light-100:
+    0px 12px 20px 0px rgba(184, 184, 184, 0.03),
+    0px 6px 12px 0px rgba(184, 184, 184, 0.02);
+
+  --shadow-light-200: 10px 10px 20px 0px rgba(218, 213, 213, 0.1);
+
+  --shadow-light-300: -10px 10px 20px 0px rgba(218, 213, 213, 0.1);
+
+  --shadow-dark-100: 0px 2px 10px 0px rgba(46, 52, 56, 0.1);
+
+  --shadow-dark-200: 2px 0px 20px 0px rgba(39, 36, 36, 0.04);
+
+  /* Animations */
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+/* -----------------------------------------
+   Accordion Animations
+   ----------------------------------------- */
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+
+  to {
+    height: 0;
+  }
+}
+
+/* -----------------------------------------
+   Typography
+   ----------------------------------------- */
+
+@utility h1-bold {
+  @apply text-[30px] font-bold leading-[42px] tracking-tighter;
+}
+
+@utility h2-bold {
+  @apply text-[24px] font-bold leading-[31.2px];
+}
+
+@utility h2-semibold {
+  @apply text-[24px] font-semibold leading-[31.2px];
+}
+
+@utility h3-bold {
+  @apply text-[20px] font-bold leading-[26px];
+}
+
+@utility h3-semibold {
+  @apply text-[20px] font-semibold leading-[24.8px];
+}
+
+@utility base-medium {
+  @apply text-[18px] font-medium leading-[25.2px];
+}
+
+@utility base-semibold {
+  @apply text-[18px] font-semibold leading-[25.2px];
+}
+
+@utility base-bold {
+  @apply text-[18px] font-bold leading-[140%];
+}
+
+@utility paragraph-regular {
+  @apply text-[16px] font-normal leading-[22.4px];
+}
+
+@utility paragraph-medium {
+  @apply text-[16px] font-medium leading-[22.4px];
+}
+
+@utility paragraph-semibold {
+  @apply text-[16px] font-semibold leading-[20.8px];
+}
+
+@utility body-regular {
+  @apply text-[14px] font-normal leading-[19.6px];
+}
+
+@utility body-medium {
+  @apply text-[14px] font-medium leading-[18.2px];
+}
+
+@utility body-semibold {
+  @apply text-[14px] font-semibold leading-[18.2px];
+}
+
+@utility small-regular {
+  @apply text-[12px] font-normal leading-[15.6px];
+}
+
+@utility small-medium {
+  @apply text-[12px] font-medium leading-[15.6px];
+}
+
+@utility small-semibold {
+  @apply text-[12px] font-semibold leading-[15.6px];
+}
+
+@utility subtle-medium {
+  @apply text-[10px] font-medium leading-[13px];
+}
+
+@utility subtle-regular {
+  @apply text-[10px] font-normal leading-[13px];
+}
+
+/* -----------------------------------------
+   Layout
+   ----------------------------------------- */
+
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+
+@utility flex-between {
+  @apply flex items-center justify-between;
+}
+
+@utility flex-start {
+  @apply flex items-center justify-start;
+}
+
+/* -----------------------------------------
+   Backgrounds
+   ----------------------------------------- */
+
+@utility background-light850-dark100 {
+  @apply bg-light-850 dark:bg-dark-100;
+}
+
+@utility background-light900-dark200 {
+  @apply bg-light-900 dark:bg-dark-200;
+}
+
+@utility background-light900-dark300 {
+  @apply bg-light-900 dark:bg-dark-300;
+}
+
+@utility background-light800-darkgradient {
+  @apply bg-light-800 dark:dark-gradient;
+}
+
+@utility background-light800-dark400 {
+  @apply bg-light-800 dark:bg-dark-400;
+}
+
+@utility background-light700-dark400 {
+  @apply bg-light-700 dark:bg-dark-400;
+}
+
+@utility background-light700-dark300 {
+  @apply bg-light-700 dark:bg-dark-300;
+}
+
+@utility background-light800-dark300 {
+  @apply bg-light-800 dark:bg-dark-300;
+}
+
+/* -----------------------------------------
+   Text Colors
+   ----------------------------------------- */
+
+@utility text-dark100-light900 {
+  @apply text-dark-100 dark:text-light-900;
+}
+
+@utility text-dark200-light900 {
+  @apply text-dark-200 dark:text-light-900;
+}
+
+@utility text-dark200-light800 {
+  @apply text-dark-200 dark:text-light-800;
+}
+
+@utility text-dark300-light700 {
+  @apply text-dark-300 dark:text-light-700;
+}
+
+@utility text-dark400-light700 {
+  @apply text-dark-400 dark:text-light-700;
+}
+
+@utility text-dark500-light700 {
+  @apply text-dark-500 dark:text-light-700;
+}
+
+@utility text-dark500-light500 {
+  @apply text-dark-500 dark:text-light-500;
+}
+
+@utility text-dark300-light900 {
+  @apply text-dark-300 dark:text-light-900;
+}
+
+@utility text-dark400-light800 {
+  @apply text-dark-400 dark:text-light-800;
+}
+
+@utility text-light400-light500 {
+  @apply text-light-400 dark:text-light-500;
+}
+
+@utility text-dark400-light500 {
+  @apply text-dark-400 dark:text-light-500;
+}
+
+@utility text-dark400-light900 {
+  @apply text-dark-400 dark:text-light-900;
+}
+
+/* -----------------------------------------
+   Borders
+   ----------------------------------------- */
+
+@utility light-border {
+  @apply border border-light-800 dark:border-dark-300;
+}
+
+@utility light-border-2 {
+  @apply border border-light-700 dark:border-dark-400;
+}
+
+/* -----------------------------------------
+   Gradients
+   ----------------------------------------- */
+
+@utility primary-gradient {
+  background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
+}
+
+@utility dark-gradient {
+  background: linear-gradient(
+    232deg,
+    rgba(23, 28, 35, 0.41) 0%,
+    rgba(19, 22, 28, 0.7) 100%
+  );
+}
+
+@utility light-gradient {
+  background: linear-gradient(
+    132deg,
+    rgba(247, 249, 255, 0.5) 0%,
+    rgba(229, 237, 255, 0.25) 100%
+  );
+}
+
+@utility primary-text-gradient {
+  background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* -----------------------------------------
+   Cards
+   ----------------------------------------- */
+
+@utility card-wrapper {
+  @apply bg-light-900 shadow-light-100 dark:dark-gradient dark:shadow-dark-100;
+}
+
+/* -----------------------------------------
+   Buttons
+   ----------------------------------------- */
+
+@utility btn {
+  @apply bg-light-800 dark:bg-dark-300;
+}
+
+@utility btn-secondary {
+  @apply bg-light-800 dark:bg-dark-400;
+}
+
+@utility btn-tertiary {
+  @apply bg-light-700 dark:bg-dark-300;
+}
+
+/* -----------------------------------------
+   Shadows
+   ----------------------------------------- */
+
+@utility shadow-light100-dark100 {
+  @apply shadow-light-100 dark:shadow-dark-100;
+}
+
+@utility shadow-light100-darknone {
+  @apply shadow-light-100 dark:shadow-none;
+}
+
+/* -----------------------------------------
+   Placeholder
+   ----------------------------------------- */
+
+@utility placeholder {
+  @apply placeholder:text-light-400 dark:placeholder:text-light-500;
+}
+
+/* -----------------------------------------
+   Image / Icon Colors
+   ----------------------------------------- */
+
+@utility invert-colors {
+  @apply invert dark:invert-0;
+}
+
+/* -----------------------------------------
+   Focus
+   ----------------------------------------- */
+
+@utility no-focus {
+  @apply focus-visible:ring-0 focus-visible:ring-transparent focus-visible:outline-none;
+}
+
+/* -----------------------------------------
+   Scrollbar
+   ----------------------------------------- */
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* -----------------------------------------
+   Custom Scrollbar
+   ----------------------------------------- */
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888888;
+  border-radius: 50px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+/* -----------------------------------------
+   Active Theme
+   ----------------------------------------- */
+
+.active-theme {
+  filter: invert(53%) sepia(98%) saturate(3332%) hue-rotate(0deg)
+    brightness(104%) contrast(106%);
+}
+
+/* -----------------------------------------
+   Markdown
+   ----------------------------------------- */
+
+.markdown a {
+  color: #1da1f2;
+}
+
+.markdown a,
+.markdown code {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-word-break: break-all;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.markdown code {
+  padding: 2px;
+  color: #ff7000;
+}
+
+.markdown pre {
+  display: grid;
+  width: 100%;
+}
+
+.markdown pre code {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  color: inherit;
+}
+
+/* -----------------------------------------
+   Tab
+   ----------------------------------------- */
+
+@utility tab {
+  @apply min-h-full bg-light-800 text-light-500 dark:bg-dark-400;
+}
+
+/* -----------------------------------------
+   Hash Anchor
+   ----------------------------------------- */
+
+.hash-span {
+  display: block;
+  margin-top: -140px;
+  padding-bottom: 140px;
+}
