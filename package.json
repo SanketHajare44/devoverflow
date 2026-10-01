@@ -1,5 +1,5 @@
 {
-  "name": "devoverflow",
+  "name": "devflow",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@clerk/nextjs": "^7.9.9",
     "next": "16.3.7",
     "react": "19.2.8",
     "react-dom": "19.2.8"
